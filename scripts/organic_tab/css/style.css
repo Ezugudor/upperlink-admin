@@ -1,0 +1,91 @@
+
+/*
+	 Organic Tabs
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body { background-color:#4ECDC4; color:#fff; font-family:'Roboto';}
+
+html { overflow-y: scroll; }
+
+a { text-decoration: none; }
+
+a:focus { outline: 0; }
+
+p {
+  font-size: 16px;
+  color: #222;
+  padding:10px;
+}
+
+#container {
+  max-width: 440px;
+  margin: 150px auto;
+}
+h1 { margin-bottom:50px;}
+
+
+/* Generic Utility */
+
+.hide {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+
+#example .content-wrap {
+  background: #eee;
+  padding: 10px;
+  margin: 0 0 15px 0;
+}
+
+#example ul { list-style: none; }
+
+#example ul li a {
+  display: block;
+  border-bottom: 1px solid #666;
+  padding: 4px;
+  color: #666;
+}
+
+#example ul li a:hover {
+  background: #333;
+  color: white;
+}
+
+#example ul li:last-child a { border: none; }
+
+#example .nav { overflow: hidden; }
+
+#example .nav li {
+  width: 97px;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+#example .nav li.last { margin-right: 0; }
+
+#example .nav li a {
+  display: block;
+  padding: 5px;
+  background: #666;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  border: 0;
+}
+
+#example li a.current, #example li a.current:hover {
+  background-color: #eee !important;
+  color: black;
+}
+
+#example .nav li a:hover, #example .nav li a:focus { background: #999; }

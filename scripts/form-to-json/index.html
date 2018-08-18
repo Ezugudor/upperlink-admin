@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form to JSON</title>
+	<style>
+	body{
+		font-family:tahoma;
+		font-size:12px;
+	}
+	input[type=text], input[type=submit]{
+		border-radius: 4px;
+		border:1px #333 solid;
+		margin:4px 0;
+		padding:0.3em;
+	}
+	textarea{
+		border-radius: 4px;
+		border:1px #ccc solid;
+		margin:4px 0;
+		padding:0.3em;
+		max-height: 100px;
+		min-height: 100px;
+		height:100px;
+		max-width: 200px;
+		min-width: 200px;
+		width: 200px;
+	}
+	input[type=submit]{
+		width: 100%;
+		display: block;
+	}
+	fieldset{
+		border:1px #111 solid;
+		border-radius: 4px;
+	}
+	</style>
+</head>
+<body>
+
+<div id="json_result"></div>
+<br />
+<form name="f1" method="post" onsubmit="return formToJson(this);">
+
+	<fieldset>
+		<legend>Basic Information</legend>
+		<input type="text" name="first_name" placeholder="First Name" value="Jhan" /><br />
+		<input type="text" name="middle_name" placeholder="Middle Name" value="Dgreat" /><br />
+		<input type="text" name="last_name" placeholder="Last Name" value="Mateo" /><br />
+		<input type="text" name="date_of_birth" placeholder="Date of Birth" value="12/12/2015" /><br />
+	</fieldset>
+
+	<!-- address information -->
+	<fieldset>
+		<legend>Address Information</legend>
+		<input type="text" name="address[addition_information]" value="Poca Village" placeholder="Additional Information">
+		<input type="text" name="address[street_name]" value="69 Street" placeholder="Street Name">
+		<input type="text" name="address[po_box]" value="Sugbo" placeholder="City">
+		<input type="text" name="address[country_name]" value="Philippines" placeholder="Country">
+		<input type="text" name="address[zip_code]" placeholder="Zip Code" value="6000">
+	</fieldset>
+
+	<!--skills-->
+	<fieldset>
+		<legend>Skills</legend>
+		<input type="hidden" name="skills[0][id]" value="123">
+		<input type="text" name="skills[0][name]" value="JavaScript" placeholder="Skill 1">
+		<input type="text" name="skills[0][rating]" value="P3" placeholder="Skill Rating 1">
+
+		<input type="hidden" name="skills[1][id]" value="321">
+		<input type="text" name="skills[1][name]" value="PHP" placeholder="Skill 2">
+		<input type="text" name="skills[1][rating]" value="P3" placeholder="Skill Rating 2">
+	</fieldset>
+
+	<!--colors-->
+	<fieldset>
+		<legend>Colors</legend>
+		<input type="text" name="colors[]" placeholder="Color 1" value="red" /><br />
+		<input type="text" name="colors[]" placeholder="Color 2" value="yellow" /><br />
+		<input type="text" name="colors[]" placeholder="Color 3" value="blue" /><br />
+	</fieldset>
+
+	<fieldset>
+		<legend>Select</legend>
+		Are you human?
+		<select name="survey">
+			<option value="" selected="selected">Select</option>
+			<option value="yes">YES</option>
+			<option value="no">NO</option>
+		</select>
+	</fieldset>
+
+	<fieldset>
+		<legend>Select - Multiple</legend>
+		Are you human?
+		<select name="survey_multiple[]" multiple="multiple">
+			<option value="">Select</option>
+			<option value="yes">YES</option>
+			<option value="no">NO</option>
+			<option value="maybe">MAYBE</option>
+		</select>
+	</fieldset>
+
+	<fieldset>
+		<legend>Radio</legend>
+		Gender
+		<input type="radio" name="gender" value="M" />Male
+		<input type="radio" name="gender" value="F" />Female
+	</fieldset>
+
+	<fieldset>
+		<legend>Checbox</legend>
+		Which fruits do you like?
+		<input type="checkbox" name="fruits[]" value="Mango" />Mango
+		<input type="checkbox" name="fruits[]" value="Apple" />Apple
+		<input type="checkbox" name="fruits[]" value="Grapes" />Grapes
+		<input type="checkbox" name="fruits[]" value="Orange" />Orange
+	</fieldset>
+
+	<fieldset>
+		<legend>Message</legend>
+		<textarea name="message">This is only optional message.</textarea>
+	</fieldset>
+
+	<fieldset>
+		<legend>List</legend>
+		Choose browser:
+		<input type="text" list="browsers" name="browser" />
+		<datalist id="browsers">
+		  <option value="Internet Explorer">
+		  <option value="Firefox">
+		  <option value="Chrome">
+		  <option value="Opera">
+		  <option value="Safari">
+		</datalist>
+	</fieldset>
+
+	<fieldset>
+		<legend>Range</legend>
+		<input type="range" name="range" value="50" max="100" />
+	</fieldset>
+
+	<fieldset>
+		<legend>Points</legend>
+		<input type="number" name="points" max="100" step="1" value="0" />
+	</fieldset>
+
+	<fieldset>
+		<legend>File</legend>
+		<input type="file" name="file" />
+	</fieldset>
+
+	<fieldset>
+		<legend>Option group</legend>
+		Choose you car:
+		<select name="cars">
+		  <optgroup label="Swedish Cars">
+		    <option value="volvo">Volvo</option>
+		    <option value="saab">Saab</option>
+		  </optgroup>
+		  <optgroup label="German Cars">
+		    <option value="mercedes">Mercedes</option>
+		    <option value="audi">Audi</option>
+		  </optgroup>
+		</select>
+	</fieldset>
+
+	<input type="submit" name="submit" />
+	<input type="reset" name="reset" />
+
+</form>
+
+
+
+
+<script src="form-to-json.js"></script>
+
+
+</body>
+</html>
+
+

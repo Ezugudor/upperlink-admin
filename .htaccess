@@ -1,0 +1,27 @@
+RewriteEngine On # Turn on the rewriting engine
+Options All -Indexes
+#RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^homepage$ index.php [NC]
+
+RewriteRule ^home$ index.php [NC]
+RewriteRule ^discover/?$ index.php [NC] 
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-f 
+
+RewriteRule ^cat/?$ category.php [NC] 
+RewriteRule ^ads?/?$ ads.php [NC] 
+RewriteRule ^audio/?$ audio.php [NC] 
+RewriteRule ^users?/?$ users.php [NC] 
+
+RewriteRule ^login/?$ page-login.php [NC]
+RewriteRule ^signin/?$ page-login.php [NC]
+
+RewriteRule ^tdetails?/([0-9]+)/?$ track_details.php?tid=$1 [NC]
+RewriteRule ^tracks?/([0-9]+)/?$ track_details.php?tid=$1 [NC]
+
+
+RewriteRule ^$ index.php [NC]
+
