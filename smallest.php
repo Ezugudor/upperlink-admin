@@ -2,23 +2,24 @@
 function getSmallest($Arr){
 	$max = max($Arr);
 	$min = min($Arr);
+	$missing = array();
 	$smallest = $min;
-	for ($i=0; $i < $max ; $i++) { 
+	for ($i=1; $i < $max ; $i++) { 
 		if(!in_array($i, $Arr)){
-			     $is_smallest = 0;
-            foreach ($Arr as $defaults) {
-            	if($i > $default){
-                      //not the smallest though
-            	}else{
-            		$is_smallest = $i;
-            		break;
-            	}
-            }
+			     array_push($missing, $i);
 		}
 	}
+
+	if(count($missing) == 0){
+		$smallest = $max+1;
+	}else{
+		$smallest = min($missing);
+	}
+
+	return $smallest;
 }
 
 
-// getSmallest([1,2,3,4,3,2,1]);
+echo getSmallest([-1,0,2,4,2,9]);
 
 ?>
